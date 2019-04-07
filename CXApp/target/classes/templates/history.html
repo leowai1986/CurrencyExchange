@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style type="text/css">
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+    }
+    .Row
+    {
+        display: table-row;
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+</style>
+<head>
+<title>Currency Exchange History</title>
+</head>
+<body>
+	<div class="Table" id="tableHistory">
+		<div class="Title">
+			<p>Currency Exchange History</p>
+		</div>
+		<div class="Heading">
+			<div class="Cell">
+				<p>Query Time</p>
+			</div>
+			<div class="Cell">
+				<p>Source Currency</p>
+			</div>
+			<div class="Cell">
+				<p>Target Currency</p>
+			</div>
+			<div class="Cell">
+				<p>Value</p>
+			</div>
+			<div class="Cell">
+				<p>Quantity</p>
+			</div>
+			<div class="Cell">
+				<p>Amount</p>
+			</div>
+		</div>
+		<div class="Row" th:each="data : ${currPage.content}">
+			<div class="Cell">
+				<p th:text="${data.getUpdate()}"></p>
+			</div>
+			<div class="Cell">
+				<p th:text="${data.getSource()}" align="center"></p>
+			</div>
+			<div class="Cell">
+				<p th:text="${data.getTarget()}" align="center"></p>
+			</div>
+			<div class="Cell">
+				<p th:text="${data.getValue()}"></p>
+			</div>
+			<div class="Cell">
+				<p th:text="${data.getQuantity()}"></p>
+			</div>
+			<div class="Cell">
+				<p th:text="${data.getAmount()}"></p>
+			</div>
+		</div>
+	</div>
+	<span th:if="${currPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+		<a th:href="@{/history(size=${currPage.size}, page=${pageNumber})}"
+			th:text="${pageNumber}" th:class="${pageNumber==currPage.number + 1} ? active"></a>
+	</span>
+	<br />
+	<br />
+	<a href="/">Return Home</a>
+</body>
+</html>

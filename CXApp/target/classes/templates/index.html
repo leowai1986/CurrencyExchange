@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Currency Exchange</title>
+    <script>
+	    function validation() {
+	    	var currencySrc = document.forms["insertForm"]["currencySrc"].value;
+	    	if (currencySrc == null || currencySrc == "") {
+	    		alert("Source Currency must have a value!");
+	    	    return false;
+	    	}
+	    	var currencyTarget = document.forms["insertForm"]["currencyTarget"].value;
+	    	if (currencyTarget == null || currencyTarget == "") {
+	    		alert("Target Currency must have a value!");
+	    	    return false;
+	    	}
+	    	if(currencySrc == currencyTarget){
+	    		alert("Source and Target Currency must be different!");
+	    	    return false;
+	    	}
+	    	var qty = document.forms["insertForm"]["qty"].value;
+	    	if (qty == null || qty == "" || qty == 0) {
+	    		alert("Quantity must have a value!");
+	    	    return false;
+	    	}
+	    }
+    </script>
+</head>
+<body>
+<h3>Currency Exchange</h3>
+<form id="insertForm" name="insertForm" action="/result" method="post" class="insertForm" onsubmit="return validation()">
+<pre>
+<table>
+<tr><td>Source Currency: </td><td><select id="currencySrc" name="currencySrc">
+	<option value="">--Select Source--</option>
+    <option th:each="curr : ${currList}"
+            th:value="${curr}"
+            th:text="${curr}"></option>
+</select></td></tr>
+
+<tr><td>Target Currency: </td><td><select id="currencyTarget" name="currencyTarget">
+	<option value="">--Select Target--</option>
+    <option th:each="curr : ${currList}"
+            th:value="${curr}"
+            th:text="${curr}"></option>
+</select></td></tr>
+
+<tr><td>Quantity: </td><td><input type="number" id="qty" name="qty" min="1" step="1" /></td></tr>
+</table>
+<input type="submit" value="Convert" />&nbsp;&nbsp;<a href="/">Cancel</a>
+<br />
+<a href="/history">Show History</a>
+</pre>
+</form>
+</body>
+</html>

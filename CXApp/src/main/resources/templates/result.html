@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Currency Exchange</title>
+</head>
+<body>
+<h3>Currency Exchange</h3>
+<div>
+	<h4>
+		<span th:text="${result.getQuantity()}"></span> <span th:text="${result.getSource()}"></span>
+		<span>=</span>
+		<span th:text="${result.getAmount()}"></span><span th:text="${result.getTarget()}"></span>
+    </h4>
+    <p>1 <span th:text="${result.getSource()}"></span> = <span th:text="${result.getValue()}"></span> <span th:text="${result.getTarget()}"></span></p>
+    <p><span th:text="${result.getUpdate()}"></span></p>
+</div>
+<a href="/">Return Home</a>
+</body>
+</html>
