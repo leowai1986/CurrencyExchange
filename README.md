@@ -1,12 +1,12 @@
 Currency Exchange App for IProgrammers
 
-El aplicativo fue creado con la versión de Eclipse IDE for Enterprice Java Developers. https://www.eclipse.org/downloads/ Eclipse IDE 2019‑03 64 bits. Instale la opción "Eclipse IDE for Enterprice Java Developers".
+El aplicativo fue creado con la versión de Eclipse IDE for Enterprise Java Developers. https://www.eclipse.org/downloads/ Eclipse IDE 2019‑03 64 bits. Instale la opción "Eclipse IDE for Enterprise Java Developers".
 
 Al ser un aplicativo web utilice el apache-tomcat-8.5.39 64 bits: https://tomcat.apache.org/download-80.cgi
 
 Para evitar utilizar una base de datos, y así, simplificar la instalación del aplicativo, el historico de las consultas se guarda en un archivo de texto (HistoryExchange.txt).
 
-Como se recomendo en el instrucito uilice el servicio REST de cambio.today.La key que la página te otorga para utilizar el servicio REST se almaceno en el archivo config.properties, por si fuera necesario modificar la clave.
+Como se recomendo en el instructivo uilice el servicio REST de cambio.today.La key que la página te otorga para utilizar el servicio REST se almaceno en el archivo config.properties, por si fuera necesario modificar la clave.
 
 El proyecto se creo con Maven, por lo tanto no debería tener que agregar ninguna dependencia. Sólo por si las dudas las dependencias que utilice son: org.springframework.boot (web y thymeleaf), org.json y org.springframework.data (commons). También se puede revisar en el archivo pom.xml.
 
